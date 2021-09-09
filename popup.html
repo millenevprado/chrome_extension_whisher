@@ -7,7 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <button>Add a product</button>
+    <div class="container">
+      <h2>Select a list:</h2>
+      <ul class="list">
+      </ul>
+
+      <form action="/" method="POST" id="form-url">
+        <input type="hidden" name="cebola" id="cebola">
+        <label for="url">URL:</label>
+        <input type="text" name="url" id="url">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
   </body>
   <script src="popup.js"></script>
 </html>

@@ -1,1 +1,1 @@
-alert('hello from the other side')
+// alert('hello from the other side')
