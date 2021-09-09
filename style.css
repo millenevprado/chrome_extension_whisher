@@ -1,0 +1,41 @@
+body {
+  box-sizing: border-box;
+  background-color: #e3e8f0;
+  margin: auto;
+  color: #011627;
+}
+
+.popup-container {
+  padding: 20px;
+  width: 500px;
+  height: 300px;
+}
+
+.list-item-btn {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+  /* border: 1px solid #6f9bda;
+  background-color: transparent; */
+}
+
+.list-item-btn:hover {
+  background-color: #AAC8F4;
+}
+
+.btn-url {
+  background-color: #6f9bda;
+  border: 1px solid #6f9bda;
+  color: #fdfdfd;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-size: 16px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.btn-url:hover {
+  background-color: #AAC8F4;
+  border: 1px solid #AAC8F4;
+  color: #011627;
+}

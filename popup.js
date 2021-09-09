@@ -1,9 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//   document.querySelector('button').addEventListener('click', onclick, false)
-//   function onclick() {
-
-//   }
-// }, false)
 const lists = document.querySelector('.list');
 
 function sendData() {
@@ -11,36 +5,43 @@ function sendData() {
     .then(response => response.json())
     .then((data) => {
       data.forEach((list) => {
-        lists.insertAdjacentHTML("beforeend", `<p data-id=${list.id}>${list.title}</p>`)
+        lists.insertAdjacentHTML("beforeend", `<li class="list-group-item list-item-btn mb-2" data-id=${list.id}>${list.title}</li>`)
       });
     });
 };
 
 function hiddenInput(listId) {
-  const cebola = document.getElementById('cebola');
-  cebola.value = listId;
+  const hiddenId = document.getElementById('hiddenId');
+  hiddenId.value = listId;
 };
 
-function agoraVaiGalera() {
+function getHiddenId() {
   lists.addEventListener('click', (event) => {
-    const id = (event.target).dataset.id;
-    hiddenInput(id);
+    const listId = (event.target).dataset.id;
+    hiddenInput(listId);
   });
 };
 
-agoraVaiGalera();
+getHiddenId();
 function handleForm() {
   const formUrl = document.getElementById('form-url');
   if (formUrl) {
     formUrl.addEventListener('submit', (event) => {
       event.preventDefault();
-      const cebola = document.querySelector('#form-url #cebola');
+      const hiddenId = document.querySelector('#form-url #hiddenId');
+      // const userInput = window.location.href;
       const userInput = document.getElementById('url').value;
-      console.log(cebola.value);
+      console.log(hiddenId.value);
       console.log(userInput);
-      createProduct(userInput, cebola);
+      createProduct(userInput, hiddenId);
     })
   };
+};
+
+function setNotes() {
+  const note = document.getElementById('notes');
+  console.log(note.innerText);
+  note.innerText = "The product has been added to your whish list";
 };
 
 function createProduct(userInput, listId) {
@@ -51,6 +52,7 @@ function createProduct(userInput, listId) {
       "product": { "url": userInput }
     })
   })
+  setNotes();
 };
 
 sendData();

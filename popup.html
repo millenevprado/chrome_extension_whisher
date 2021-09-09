@@ -4,20 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Whisher Chrome Extension</title>
   </head>
   <body>
-    <div class="container">
-      <h2>Select a list:</h2>
-      <ul class="list">
-      </ul>
+    <div class="container popup-container">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h3 class="mb-3">Select a list:</h3>
+        <ul class="list list-group">
+        </ul>
+      </div>
 
       <form action="/" method="POST" id="form-url">
-        <input type="hidden" name="cebola" id="cebola">
-        <label for="url">URL:</label>
-        <input type="text" name="url" id="url">
-        <input type="submit" value="Submit">
+        <div class="form-group d-flex flex-row justify-content-center align-items-center w-70 mt-3">
+            <input type="hidden" name="hiddenId" id="hiddenId">
+            <label for="url" class="mr-2 text-center">URL:</label>
+            <input type="text" name="url" id="url" class="form-control">
+            <input type="submit" value="Submit" class="btn btn-url ml-2">
+        </div>
       </form>
+      <p id="notes" class="text-center"></p>
     </div>
   </body>
   <script src="popup.js"></script>
