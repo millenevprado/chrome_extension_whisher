@@ -19,7 +19,7 @@ chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
   });
 
 function sendData() {
-  fetch("http://localhost:3000/api/v1/lists")
+  fetch("https://whisher.com.br/api/v1/lists")
     .then(response => response.json())
     .then((data) => {
       data.forEach((list) => {
@@ -63,9 +63,9 @@ function setNotes() {
 };
 
 function createProduct(userInput, listId) {
-  fetch(`http://localhost:3000/api/v1/lists/${listId.value}/products`, {
+  fetch(`https://whisher.com.br/api/v1/lists/${listId.value}/products`, {
     method: "POST",
-    headers: { "X-User-Email": "teste500@teste.com", "X-User-Token": "9Rjy43PM33GwQ7ksaT_K", "Content-Type": "application/json" },
+    headers: { "X-User-Email": "giovanna@whisher.com", "X-User-Token": "y6Tocgh2CusnwbeFbUxz", "Content-Type": "application/json" },
     body: JSON.stringify({
       "product": { "url": userInput }
     })
