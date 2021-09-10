@@ -23,7 +23,7 @@ function sendData() {
     .then(response => response.json())
     .then((data) => {
       data.forEach((list) => {
-        lists.insertAdjacentHTML("beforeend", `<li class="list-group-item list-item-btn mb-2" data-id=${list.id}>${list.title}</li>`)
+        lists.insertAdjacentHTML("beforeend", `<li class="list-inline-item list-item-btn" data-id=${list.id}>${list.title}</li>`)
       });
     });
 };
