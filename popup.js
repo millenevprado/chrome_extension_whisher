@@ -1,11 +1,29 @@
 const lists = document.querySelector('.list');
 
+
+chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+    const cebola = tabs[0].url;
+    const formUrl = document.getElementById('form-url');
+    if (formUrl) {
+      formUrl.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const hiddenId = document.querySelector('#form-url #hiddenId');
+        // const userInput = window.location.href;
+        // const userInput = document.getElementById('url').value;
+        const userInput = cebola;
+        // console.log(hiddenId.value);
+        // console.log(userInput);
+        createProduct(userInput, hiddenId);
+      })
+    };
+  });
+
 function sendData() {
   fetch("http://localhost:3000/api/v1/lists")
     .then(response => response.json())
     .then((data) => {
       data.forEach((list) => {
-        lists.insertAdjacentHTML("beforeend", `<li class="list-group-item list-item-btn mb-2" data-id=${list.id}>${list.title}</li>`)
+        lists.insertAdjacentHTML("beforeend", `<li class="list-inline-item list-item-btn" data-id=${list.id}>${list.title}</li>`)
       });
     });
 };
@@ -23,20 +41,20 @@ function getHiddenId() {
 };
 
 getHiddenId();
-function handleForm() {
-  const formUrl = document.getElementById('form-url');
-  if (formUrl) {
-    formUrl.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const hiddenId = document.querySelector('#form-url #hiddenId');
-      // const userInput = window.location.href;
-      const userInput = document.getElementById('url').value;
-      console.log(hiddenId.value);
-      console.log(userInput);
-      createProduct(userInput, hiddenId);
-    })
-  };
-};
+// function handleForm() {
+//   const formUrl = document.getElementById('form-url');
+//   if (formUrl) {
+//     formUrl.addEventListener('submit', (event) => {
+//       event.preventDefault();
+//       const hiddenId = document.querySelector('#form-url #hiddenId');
+//       // const userInput = window.location.href;
+//       const userInput = document.getElementById('url').value;
+//       console.log(hiddenId.value);
+//       console.log(userInput);
+//       createProduct(userInput, hiddenId);
+//     })
+//   };
+// };
 
 function setNotes() {
   const note = document.getElementById('notes');
@@ -56,4 +74,4 @@ function createProduct(userInput, listId) {
 };
 
 sendData();
-handleForm();
+// handleForm();
