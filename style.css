@@ -44,25 +44,3 @@ body {
 p {
   color: #6f9bda;
 }
-
-/* effect slid letf to right  */
-
-.slide-left-right {
-  display: inline-block;
-  /* color:#6f9bda; */
-}
-
-.slide-left-right:after {
-  content: '';
-  display: block;
-  height: 3px;
-  width: 0;
-  background: transparent;
-  transition: width .5s ease, background-color .5s ease;
-  -webkit-transition: width .5s ease, background-color .5s ease;
-}
-
-.slide-left-right:hover:after {
-  width: 100%;
-  background: #6f9bda;
-}
